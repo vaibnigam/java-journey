@@ -69,10 +69,10 @@ public class IfElsePractice {
 	private static void q17_typeOfQuadriletral(Scanner sc) {
 		System.out.println("Enter length of the rectangle :");
 		int length = sc.nextInt();
-		System.out.println("Enter breadth of the triangle :");
+		System.out.println("Enter breadth of the rectangle :");
 		int breadth = sc.nextInt();
 		if (length <= 0 || breadth <= 0) {
-			System.out.println("Invalid sides of a rectangle");
+			System.out.println("Length of each side must be greater than zero");
 		} else if (length == breadth) {
 			System.out.println("This rectangle is a square");
 		} else
@@ -176,8 +176,13 @@ public class IfElsePractice {
 		int a = sc.nextInt();
 		System.out.println("Enter second side of a triangle");
 		int b = sc.nextInt();
+
 		System.out.println("Enter third side of a triangle");
 		int c = sc.nextInt();
+		if (a <= 0 || b <= 0 || c <= 0) {
+			System.out.println("Length of each side must be greater than zero");
+			return;
+		}
 		if ((a + b <= c) || (c + b <= a) || (a + c <= b))
 			System.out.println("These sides do not form a triangle");
 		else if (a == b && b == c)
@@ -226,11 +231,7 @@ public class IfElsePractice {
 		System.out.println("Enter Chemistry : ");
 		int a = sc.nextInt();
 
-		int totalMarks = 500;
-		int marksScored = a + b + c + d + e;
-		float percentage = marksScored / 5f;
-		String grade = "N/A";
-		boolean pass = true;
+//		boolean pass = true;
 
 		if (a < 0 || a > 100) {
 			System.out.println("Invalid Marks in Chemistry");
@@ -252,6 +253,12 @@ public class IfElsePractice {
 			System.out.println("Invalid Marks in Physics");
 			return;
 		}
+
+		int totalMarks = 500;
+		int marksScored = a + b + c + d + e;
+		float percentage = marksScored / 5f;
+		String grade = "N/A";
+		
 		if (a < 33 || b < 33 || c < 33 || d < 33 || e < 33) {
 			System.out.println(" Student Name : " + name);
 			System.out.println(" Student Roll No : " + roll);
@@ -261,34 +268,33 @@ public class IfElsePractice {
 			System.out.println(" Percentage : " + percentage + "%");
 			System.out.println(" Grade : " + grade);
 
-			pass = false;
+//			pass = false;
 			return;
 		}
 
-		if (pass && percentage >= 90) {
+		if (percentage >= 90) {
 			grade = "A+";
-		} else if (pass && percentage >= 80) {
+		} else if (percentage >= 80) {
 			grade = "A";
-		} else if (pass && percentage >= 70) {
+		} else if (percentage >= 70) {
 			grade = "B+";
-		} else if (pass && percentage >= 60) {
+		} else if (percentage >= 60) {
 			grade = "B";
-		} else if (pass && percentage >= 50) {
+		} else if (percentage >= 50) {
 			grade = "C";
-		} else if (pass && percentage >= 40) {
+		} else if (percentage >= 40) {
 			grade = "D";
-		} else if (pass && percentage >= 33) {
+		} else if (percentage >= 33) {
 			grade = "E";
 		}
-		if (pass) {
-			System.out.println(" Student Name : " + name);
-			System.out.println(" Student Roll No : " + roll);
-			System.out.println(" Result : Passed ");
-			System.out.println(" Marks Achieved : " + marksScored);
-			System.out.println(" Total Marks : " + totalMarks);
-			System.out.println(" Percentage : " + percentage + "%");
-			System.out.println(" Grade : " + grade);
-		}
+
+		System.out.println(" Student Name : " + name);
+		System.out.println(" Student Roll No : " + roll);
+		System.out.println(" Result : Passed ");
+		System.out.println(" Marks Achieved : " + marksScored);
+		System.out.println(" Total Marks : " + totalMarks);
+		System.out.println(" Percentage : " + percentage + "%");
+		System.out.println(" Grade : " + grade);
 
 	}
 
@@ -296,6 +302,10 @@ public class IfElsePractice {
 		System.out.println("Quadratic equation is (Ax^2 + Bx + C): ");
 		System.out.println("Enter first number A = : ");
 		double a = sc.nextDouble();
+		if (a == 0) {
+			System.out.println("A cannot be zero for a quadratic equation");
+			return;
+		}
 		System.out.println("Enter second number B = : ");
 		double b = sc.nextDouble();
 		System.out.println("Enter third number C = : ");
@@ -324,17 +334,30 @@ public class IfElsePractice {
 		System.out.println("Enter third number C = : ");
 		int c = sc.nextInt();
 
-		if (a > b && a > c)
-			System.out.println("A is highest " + a);
-		else if (b > a && b > c)
-			System.out.println("B is highest " + b);
-		else
-			System.out.println("C is highest " + c);
+		if (a == b && a == c) {
+			System.out.println("All numbers are equal : " + a);
+		} else if (a > b && a > c) {
+			System.out.println("A is highest : " + a);
+		} else if (b > c && b > a) {
+			System.out.println("B is highest : " + b);
+		} else if (c > a && c > b) {
+			System.out.println("C is highest : " + c);
+		} else if (a == b && a > c) {
+			System.out.println("A & B are highest : " + a);
+		} else if (b == c && b > a) {
+			System.out.println("B & C are highest : " + b);
+		} else if (c == a && c > b) {
+			System.out.println("A & C are highest : " + c);
+		}
 	}
 
 	private static void q6_heightCategorizer(Scanner sc) {
 		System.out.println("Enter height in cm ");
 		int height = sc.nextInt();
+		if (height <= 0) {
+			System.out.println("Invalid Height");
+			return;
+		}
 		if (height > 190)
 			System.out.println("Very Tall");
 		else if (height > 170)
@@ -360,7 +383,7 @@ public class IfElsePractice {
 		System.out.println("Enter a number : ");
 		int c = sc.nextInt();
 		if (c == 0)
-			System.out.println("Neither Even nor Odd");
+			System.out.println("Zero is Even");
 		else if (c % 2 == 0) {
 			if (c < 0)
 				System.out.println("Negative Even Number");
@@ -406,6 +429,10 @@ public class IfElsePractice {
 		String name = sc.nextLine();
 		System.out.println("Enter age : ");
 		int g = sc.nextInt();
+		if (g < 0) {
+			System.out.println("Invalid Age");
+			return;
+		}
 		if (g >= 18)
 			System.out.println(name + " is eligible to vote");
 		else
