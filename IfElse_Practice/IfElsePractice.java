@@ -4,7 +4,7 @@ public class IfElsePractice {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Menu - \n");
+		System.out.println("List of Programs - \n");
 		System.out.println("1. Program to check two integers are equal or not");
 		System.out.println("2. Program to check if a given number is even or odd");
 		System.out.println("3. Program to check if a given number is positive or negative");
