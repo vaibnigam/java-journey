@@ -67,42 +67,145 @@ public class IfElsePractice {
 	}
 
 	private static void q17_typeOfQuadriletral(Scanner sc) {
-		// TODO Auto-generated method stub
-
+		System.out.println("Enter length of the rectangle :");
+		int length = sc.nextInt();
+		System.out.println("Enter breadth of the triangle :");
+		int breadth = sc.nextInt();
+		if (length <= 0 || breadth <= 0) {
+			System.out.println("Invalid sides of a rectangle");
+		} else if (length == breadth) {
+			System.out.println("This rectangle is a square");
+		} else
+			System.out.println("This rectangle is not a square");
 	}
 
 	private static void q16_isTriangleValid(Scanner sc) {
-		// TODO Auto-generated method stub
+		System.out.println("Enter first side of the triangle :");
+		int a = sc.nextInt();
+		System.out.println("Enter second side of the triangle :");
+		int b = sc.nextInt();
+		System.out.println("Enter third side of the triangle :");
+		int c = sc.nextInt();
+		if (a <= 0 || b <= 0 || c <= 0)
+			System.out.println("Length of each side must be greater than zero");
+		else if (a + b <= c || a + c <= b || b + c <= a)
+			System.out.println("These sides do not form a triangle");
+		else
+			System.out.println("These sides form a valid triangle");
 
 	}
 
 	private static void q15_maximumMinimum(Scanner sc) {
-		// TODO Auto-generated method stub
+		System.out.println("Enter first number A");
+		long a = sc.nextLong();
+		System.out.println("Enter second number B");
+		long b = sc.nextLong();
 
+		if (a > b) {
+			System.out.println("A is maximum : " + a);
+			System.out.println("B is minimum : " + b);
+		} else if (a == b)
+			System.out.println("Both are equal : " + a);
+		else {
+			System.out.println("B is maximum : " + b);
+			System.out.println("A is minimum : " + a);
+		}
 	}
 
 	private static void q14_profitLoss(Scanner sc) {
-		// TODO Auto-generated method stub
+		System.out.println("Enter cost price of the product");
+		int cost = sc.nextInt();
+		if (cost < 0) {
+			System.out.println("Invalid Cost Price");
+			return;
+		}
+		System.out.println("Enter Marked Price of the product");
+		int mark = sc.nextInt();
+
+		if (mark < 0) {
+			System.out.println("Invalid Marked Price");
+			return;
+		}
+		System.out.println("Enter discount on the product");
+		int discount = sc.nextInt();
+		if (discount < 0 || discount > 100) {
+			System.out.println("Invalid Discount");
+			return;
+		}
+
+		double sell = mark - (mark * (discount / 100f));
+
+		if (sell > cost) {
+			System.out.println("Its a profit of \u20B9 " + (sell - cost));
+		} else if (cost > sell) {
+			System.out.println("Its a loss of \u20B9 " + (cost - sell));
+		} else
+			System.out.println("No Profit No Loss");
 
 	}
 
 	private static void q13_vowelOrConsonant(Scanner sc) {
-		// TODO Auto-generated method stub
-
+		sc.nextLine();
+		System.out.println("Enter an alphabet");
+		char c = sc.nextLine().charAt(0);
+		if ((c > 'Z' || c < 'A') && (c > 'z' || c < 'a'))
+			System.out.println("Not an alphabet");
+		else if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I'
+				|| c == 'O' || c == 'U')
+			System.out.println("Its a vowel");
+		else
+			System.out.println("Its a consonant");
 	}
 
 	private static void q12_typeOfChar(Scanner sc) {
-		// TODO Auto-generated method stub
-
+		System.out.println("Enter character");
+		sc.nextLine();
+		char c = sc.nextLine().charAt(0);
+		if (c >= 'a' && c <= 'z')
+			System.out.println("It's a lower case alphabet");
+		else if (c >= 'A' && c <= 'Z')
+			System.out.println("It's an upper case alphabet");
+		else if (c >= '0' && c <= '9')
+			System.out.println("It's a numeric value");
+		else
+			System.out.println("It's a special character");
 	}
 
 	private static void q11_typeOfTriangle(Scanner sc) {
-		// TODO Auto-generated method stub
+		System.out.println("Enter first side of a triangle");
+		int a = sc.nextInt();
+		System.out.println("Enter second side of a triangle");
+		int b = sc.nextInt();
+		System.out.println("Enter third side of a triangle");
+		int c = sc.nextInt();
+		if ((a + b <= c) || (c + b <= a) || (a + c <= b))
+			System.out.println("These sides do not form a triangle");
+		else if (a == b && b == c)
+			System.out.println("These are sides of a equilateral triangle");
+		else if ((a == b && b != c) || (b == c && b != a) || (a == c && a != b))
+			System.out.println("These are sides of a isoceles triangle");
+		else if (a != b && b != c)
+			System.out.println("These are sides of a scalene triangle");
 
 	}
 
 	private static void q10_weatherReport(Scanner sc) {
-		// TODO Auto-generated method stub
+		System.out.println("Enter Temperature in \u00B0C : ");
+		int temp = sc.nextInt();
+		if (temp < -90 || temp > 60)
+			System.out.println("Invalid Weather");
+		else if (temp <= 0)
+			System.out.println("Extreme Cold " + temp + "\u00B0C");
+		else if (temp < 15)
+			System.out.println("Cold weather " + temp + "\u00B0C");
+		else if (temp < 25)
+			System.out.println("Pleasant weather " + temp + "\u00B0C");
+		else if (temp < 35)
+			System.out.println("Warm weather " + temp + "\u00B0C");
+		else if (temp < 45)
+			System.out.println("Hot weather " + temp + "\u00B0C");
+		else
+			System.out.println("Extreme Hot " + temp + "\u00B0C");
 
 	}
 
