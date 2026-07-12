@@ -256,9 +256,9 @@ public class IfElsePractice {
 
 		int totalMarks = 500;
 		int marksScored = a + b + c + d + e;
-		float percentage = marksScored / 5f;
+		float percentage = (marksScored / (float) totalMarks) * 100;
 		String grade = "N/A";
-		
+
 		if (a < 33 || b < 33 || c < 33 || d < 33 || e < 33) {
 			System.out.println(" Student Name : " + name);
 			System.out.println(" Student Roll No : " + roll);
