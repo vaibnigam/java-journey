@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry excluding="HelloWorldVariants/" kind="src" path="Day1_HelloWorld"/>
-	<classpathentry kind="src" path="Day1_HelloWorld/HelloWorldVariants"/>
-	<classpathentry kind="src" path="Day2_Literals_Identifiers_keywords"/>
-	<classpathentry kind="src" path="Day3_DataTypes"/>
-	<classpathentry kind="src" path="Day4_Variables"/>
-	<classpathentry kind="src" path="Day5_Operators"/>
+	<classpathentry excluding="HelloWorldVariants/" kind="src" path="HelloWorld"/>
+	<classpathentry kind="src" path="Literals_Identifiers_keywords"/>
+	<classpathentry kind="src" path="DataTypes"/>
+	<classpathentry kind="src" path="Variables"/>
+	<classpathentry kind="src" path="Operators"/>
 	<classpathentry kind="src" path="PracticeTest"/>
+	<classpathentry kind="src" path="ControlFlow"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
