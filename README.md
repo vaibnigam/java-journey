@@ -16,6 +16,7 @@ This repository documents my hands-on Java learning journey through a structured
 | `Day4_Variables` | Variables | Declaration, initialization, scope |
 | `Day5_Operators` | Operators | Arithmetic, relational, logical + real-world tasks (Bonus Calculator, Movie Ticket Pricing) |
 | `IfElse_Practice` | Conditional statements | Menu-driven program with 17 practice problems |
+| `ControlFlow` | Switch statements & jumping statements | Menu-driven program with 12 switch-case problems, break/continue/return |
 | `PracticeTest` | Mixed practice | Various programs combining learned concepts |
 
 ---
@@ -23,7 +24,6 @@ This repository documents my hands-on Java learning journey through a structured
 ## 🎯 IfElse_Practice — 17 Problems
 
 A single menu-driven program covering:
-
 - Number checks (equal, even/odd, positive/negative)
 - Leap year (nested conditions)
 - Voting eligibility, height categorization
@@ -33,6 +33,22 @@ A single menu-driven program covering:
 - Temperature messages, triangle classification & validity
 - Character type, vowel/consonant detection
 - Profit/loss calculator, max/min, square check
+
+---
+
+## 🎯 SwitchCase_Practice — 12 Problems
+
+Same menu-driven structure as `IfElse_Practice`, this time solved using `switch`:
+- Day of week / month name lookup
+- Grade calculator using switch instead of if-else chains
+- Simple calculator (arithmetic operations on switch)
+- Season identifier based on month
+- Vowel/consonant check using switch
+- Menu-driven cases grouped with intentional fall-through (empty cases)
+- Traffic signal / direction-based problems
+- Default case handling for invalid input
+
+Also covers jumping statements (`break`, `continue`, `return`) as used inside switch and loops.
 
 ---
 
@@ -49,6 +65,9 @@ Real bugs I hit and fixed — documented so I never repeat them:
 - **De Morgan's Law**: negating `A && B` gives `!A || !B` — used in triangle validity
 - **Early `return`**: exit a method immediately on invalid input (guard clauses)
 - **ASCII gaps**: characters 91–96 sit between 'Z' and 'a' — never assume a continuous letter range
+- **Switch fall-through**: forgetting `break` silently runs into the next case — but empty cases without `break` are also a legit way to group multiple labels for the same logic
+- **Switch case labels must be compile-time constants**: no ranges, no variables — if the check needs a range, switch is the wrong tool
+- **String comparison in switch/if**: always `.equals()`, never `==`, or the match silently fails
 
 ---
 
@@ -79,7 +98,7 @@ git push origin main
 
 ## 🚧 Up Next
 
-- [ ] Switch statements
+- [x] Switch statements
 - [ ] Loops (for, while, do-while)
 - [ ] Arrays
 - [ ] Object-Oriented Programming
