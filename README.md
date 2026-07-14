@@ -96,13 +96,4 @@ git push origin main
 
 ---
 
-## 🚧 Up Next
-
-- [x] Switch statements
-- [ ] Loops (for, while, do-while)
-- [ ] Arrays
-- [ ] Object-Oriented Programming
-
----
-
 *This repo is a living document — it grows as I learn.* 🌱
