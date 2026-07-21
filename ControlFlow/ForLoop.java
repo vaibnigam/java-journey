@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class ForLoop {
 
@@ -22,6 +23,13 @@ public class ForLoop {
 		System.out.println(" ");
 		System.out.println(" ");
 
+		// easy even
+		for (int i = 2; i <= 100; i += 2) {
+			System.out.print(i + " ");
+		}
+		System.out.println(" ");
+		System.out.println(" ");
+
 //		3. find the sum of a number from 1 to 10.
 
 		int sum = 0;
@@ -42,15 +50,18 @@ public class ForLoop {
 
 //		5. check the number is prime or not.
 
-		int num = 97;
+		int num = 93;
 		for (int i = 2; i < num; i++) {
 			if (num % i == 0) {
 				System.out.println("not prime");
 				break;
+			} else {
+				System.out.println("prime");
+				break;
 			}
 
 		}
-		System.out.println("prime");
+
 		System.out.println(" ");
 
 //	    6. convert the binary number to decimal number
@@ -93,8 +104,33 @@ public class ForLoop {
 //		8. print a number from 100 to 1.
 		for (int i = 100; i > 0; i--) {
 			System.out.print(i + ", ");
+		}
+//		9 . store a reverse number
+		int numb = 123456789;
+		int rev = 0;
+		for (;;) {
+			if (numb / 10 != 0) {
+				rev = (rev * 10) + (numb % 10);
+				numb /= 10;
+
+			} else {
+				rev = (rev * 10) + (numb % 10);
+				System.out.println();
+				System.out.println(rev);
+				break;
+
+			}
 
 		}
+//		10. easy reverse
+		int numbr = 123456789;
+		int revr = 0;
 
+		for (; numbr != 0; numbr /= 10) {
+			revr = (revr * 10) + (numbr % 10);
+
+		}
+		System.out.println(revr);
 	}
-}
+	}
+
