@@ -17,6 +17,7 @@ This repository documents my hands-on Java learning journey through a structured
 | `Day5_Operators` | Operators | Arithmetic, relational, logical + real-world tasks (Bonus Calculator, Movie Ticket Pricing) |
 | `IfElse_Practice` | Conditional statements | Menu-driven program with 17 practice problems |
 | `ControlFlow` | Switch statements & jumping statements | Menu-driven program with 12 switch-case problems, break/continue/return |
+| `Loops_Practice` | for, while, do-while | Loop variants, nested loops, pattern printing, labeled break/continue |
 | `PracticeTest` | Mixed practice | Various programs combining learned concepts |
 
 ---
@@ -52,6 +53,20 @@ Also covers jumping statements (`break`, `continue`, `return`) as used inside sw
 
 ---
 
+## 🎯 Loops_Practice — for, while, do-while
+
+Covers all three loop types and where each one actually fits:
+- **for loop** — fixed number of iterations, counting problems, table generation, sum/factorial/reverse-number type programs
+- **while loop** — condition-first, used where iteration count isn't known upfront (input-driven loops, digit extraction)
+- **do-while loop** — body-first execution, used for menu-driven programs that must run at least once
+- **Nested loops** — inner loop completing fully for every outer iteration, used for 2D traversal and pattern generation
+- **Pattern printing** — number/star/character patterns using nested for loops (triangles, pyramids, diamonds, inverted patterns)
+- **Labeled break/continue** — breaking or skipping a specific outer loop from inside a nested loop instead of just the innermost one
+- **Loop-based collection traversal** — iterating over arrays/collections with for and enhanced-for
+- Performance-oriented patterns — avoiding recomputation inside loop conditions
+
+---
+
 ## 🐛 Key Lessons Learned (The Hard Way)
 
 Real bugs I hit and fixed — documented so I never repeat them:
@@ -68,6 +83,11 @@ Real bugs I hit and fixed — documented so I never repeat them:
 - **Switch fall-through**: forgetting `break` silently runs into the next case — but empty cases without `break` are also a legit way to group multiple labels for the same logic
 - **Switch case labels must be compile-time constants**: no ranges, no variables — if the check needs a range, switch is the wrong tool
 - **String comparison in switch/if**: always `.equals()`, never `==`, or the match silently fails
+- **while vs do-while**: picking `while` for a menu-driven program means the menu never shows on the first run unless the condition is pre-seeded — `do-while` avoids that entirely
+- **Nested loop variable shadowing**: reusing the same loop variable name in nested loops doesn't compile — inner loop needs its own variable
+- **Pattern printing off-by-one**: row/column boundaries in star patterns break easily if the inner loop condition uses `<` instead of `<=` (or vice versa) — always trace one row by hand first
+- **Labeled break scope**: a label has to sit directly above the loop it targets — putting it in the wrong place either doesn't compile or breaks the wrong loop
+- **Infinite loop from unchanged condition variable**: forgetting to update the loop variable inside a `while` (unlike `for`, where it's forced into the loop header) silently hangs the program
 
 ---
 
