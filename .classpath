@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="Operators"/>
 	<classpathentry kind="src" path="PracticeTest"/>
 	<classpathentry kind="src" path="ControlFlow"/>
+	<classpathentry kind="src" path="Arrays"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

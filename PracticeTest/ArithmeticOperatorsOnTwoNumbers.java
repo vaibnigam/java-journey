@@ -8,6 +8,7 @@ public class ArithmeticOperatorsOnTwoNumbers {
 		long x = sc.nextLong();
 		System.out.println("Enter second number");
 		long y = sc.nextLong();
+		sc.close();
 
 		System.out.println("Addition is : " +  (x + y) );
 		System.out.println("Subtraction is : " +  (x - y) );

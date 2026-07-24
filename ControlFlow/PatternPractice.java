@@ -423,15 +423,15 @@ public class PatternPractice {
 		int n = 4;
 		for (int i = 1; i <= n; i++) {
 			for (int k = i; k <= n; k++) {
-				System.out.print(" ");
+				System.out.print("  ");
 			}
-			int num = 1;
-			for (int j = 1; j <= 2 * i - 1; j++) {
-				if (j == 1 || j == i) {
-					System.out.print(" A");
-				} else {
-					System.out.print("  ");
-				}
+			char ch = 'A';
+			for (int j = 1; j <= i; j++) {
+				System.out.print(ch++ + " ");
+			}
+			ch-=2;
+			for (int j = 1; j < i; j++) {
+				System.out.print(ch-- + " ");
 			}
 			System.out.println();
 		}
@@ -657,6 +657,17 @@ public class PatternPractice {
 
 	private static void pattern19() {
 		System.out.println("\n--Q19---------------\n");
+		int n=4;
+		for (int i = 1; i <= n; i++) {
+			for (int k = 1; k <= n-i; k++) {
+				System.out.print("  ");
+			}
+			for (int j = 1; j <=i; j++) {
+				System.out.print(" * ");
+			}
+		
+			System.out.println();
+		}
 	}
 
 	private static void pattern20() {
@@ -708,6 +719,12 @@ public class PatternPractice {
 
 	private static void pattern22() {
 		System.out.println("\n--Q22---------------\n");
+		int n = 6;
+		for (int i = 1; i <= n; i++) {
+			for (int j = 1; j <= n; j++) {
+				
+			}
+		}
 	}
 
 	private static void pattern23() {
@@ -732,7 +749,7 @@ public class PatternPractice {
 	private static void pattern24() {
 
 		System.out.println("\n--Q24---------------\n");
-		
+
 //			         1 0
 //			       1 0 1 0
 //			     1 0 1 0 1 0
@@ -742,13 +759,14 @@ public class PatternPractice {
 
 		int n = 6;
 		for (int i = 1; i <= n; i++) {
-			for(int k = 1; k<=n-i;k++) {
+			for (int k = 1; k <= n - i; k++) {
 				System.out.print("  ");
 			}
-			for (int j = 1; j<=i; j++) {
+			for (int j = 1; j <= i; j++) {
 				System.out.print(" 1");
 				System.out.print(" 0");
-			}System.out.println();
+			}
+			System.out.println();
 		}
 
 	}

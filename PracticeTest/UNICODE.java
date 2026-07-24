@@ -1,7 +1,6 @@
 
 public class UNICODE {
 	public static void main(String args[]) {
-		char c = '\u0905';
 		for (char i = '\u0905'; i <= '\u0939'; i++) {
 			System.out.print(i + " ");
 		}
