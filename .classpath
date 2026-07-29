@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry excluding="HelloWorldVariants/" kind="src" path="HelloWorld"/>
 	<classpathentry kind="src" path="Literals_Identifiers_keywords"/>
 	<classpathentry kind="src" path="DataTypes"/>
@@ -9,5 +13,6 @@
 	<classpathentry kind="src" path="PracticeTest"/>
 	<classpathentry kind="src" path="ControlFlow"/>
 	<classpathentry kind="src" path="Arrays"/>
+	<classpathentry kind="src" path="String"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
