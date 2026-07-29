@@ -175,6 +175,6 @@ public class StringHW {
 		System.out.println(string.concat("0000"));//1234567890000
 		System.out.println(string); //123456789
 		string = string.concat("-ONETWOTHREEFOUR");
-		System.out.println(string);//123456789ONETWOTHREEFOUR
+		System.out.println(string);//123456789-ONETWOTHREEFOUR
 	}
 }
