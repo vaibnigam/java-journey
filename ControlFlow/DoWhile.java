@@ -16,7 +16,7 @@ public class DoWhile {
 //      que8(sc);
 //      que9(sc);
 //      que10();
-
+//
         sc.close();
     }
 
