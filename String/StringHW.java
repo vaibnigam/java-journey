@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.StringTokenizer;
+
 public class StringHW {
 	public static void main(String[] args) {
 
@@ -192,5 +196,105 @@ public class StringHW {
 
 		string = string.concat("-ONETWOTHREEFOUR");     // reassigned this time
 		System.out.println(string);                       // "123456789-ONETWOTHREEFOUR"
+
+
+		// ===================== 19. String.join() =====================
+		String strn = String.join(",", "One", "Two", "Three");
+		System.out.println(strn);   // "One,Two,Three" -> varargs overload
+
+		String strng = String.join(",", List.of("Four", "Five"));
+		System.out.println(strng);  // "Four,Five" -> Iterable overload (List/Set)
+
+		strn = strn + "," + strng + "," + String.join(",", List.of("Six", "Seven"));
+		System.out.println(strn);   // "One,Two,Three,Four,Five,Six,Seven"
+
+
+		// ===================== 20. StringTokenizer: countTokens(), nextToken(), hasMoreTokens() =====================
+		StringTokenizer stk = new StringTokenizer(strn, ",");
+		System.out.println(stk.countTokens());   // 7 -> counts remaining tokens WITHOUT consuming them
+
+		System.out.println(stk.nextToken());   // "One"
+		System.out.println(stk.nextToken());   // "Two"
+		System.out.println(stk.nextToken());   // "Three"
+		System.out.println(stk.nextToken());   // "Four"
+		System.out.println(stk.nextToken());   // "Five"
+		System.out.println(stk.nextToken());   // "Six"
+		System.out.println(stk.nextToken());   // "Seven" -> last token; stk is now fully consumed
+//		stk.nextToken();                       // would throw NoSuchElementException -> no tokens left
+
+		StringTokenizer stkr = new StringTokenizer(strn, ",");
+		while (stkr.hasMoreTokens()) {          // NOTE: must check stkr here, not the already-consumed stk
+			System.out.println(stkr.nextToken());
+		}
+		// One
+		// Two
+		// Three
+		// Four
+		// Five
+		// Six
+		// Seven
+
+
+		// ===================== 21. StringTokenizer: nextToken() vs nextElement() =====================
+		StringTokenizer stkDemo = new StringTokenizer("A,B,C", ",");
+		String t = stkDemo.nextToken();       // "A" -> nextToken() returns String directly (StringTokenizer's own method)
+		Object o = stkDemo.nextElement();     // "B" -> nextElement() returns Object (inherited from Enumeration interface)
+		System.out.println(t);                 // "A"
+		System.out.println(o);                 // "B" -> needs a cast to String if String-specific methods are needed on it
+
+
+		// ===================== 22. split() basics + StringTokenizer vs split() empty-token behavior =====================
+		str = "Vaibhav,Nigam,Java,Developer";
+		String[] parts = str.split(",");
+		System.out.println(Arrays.toString(parts));   // "[Vaibhav, Nigam, Java, Developer]"
+		System.out.println(str);                        // "Vaibhav,Nigam,Java,Developer" -> unchanged (immutable)
+
+		str2 = "a ,,b";
+		StringTokenizer stkzr = new StringTokenizer(str2, ",");
+		System.out.println(stkzr.countTokens());   // 2 -> empty token between the two commas is SKIPPED
+		while (stkzr.hasMoreTokens()) {
+			System.out.print(stkzr.nextToken());     // "a b" -> prints back-to-back, no separator added
+		}
+		System.out.println();                          // line break for readability
+
+		str3 = "a,,b";
+		String[] parts3 = str3.split(",");
+		System.out.println(Arrays.toString(parts3));   // "[a, , b]" -> empty string INCLUDED, unlike StringTokenizer
+
+
+		// ===================== 23. split() with regex patterns =====================
+		str = "Vaibhav123Nigam456Java";
+		parts = str.split("\\d+");                       // splits on one-or-more consecutive digits
+		System.out.println(Arrays.toString(parts));     // "[Vaibhav, Nigam, Java]"
+
+		str2 = "one, two,three  ,four";
+		String[] parts2 = str2.split("\\s*,\\s*");        // splits on comma with any optional spaces around it
+		System.out.println(Arrays.toString(parts2));      // "[one, two, three, four]"
+
+
+		// ===================== 24. split() limit parameter =====================
+		String str4 = "a:b:c:d";
+		String[] parts4 = str4.split(":", 2);
+		System.out.println(Arrays.toString(parts4));     // "[a, b:c:d]" -> limit 2, only the first split happens
+
+		String[] parts5 = str4.split(":", -1);
+		System.out.println(Arrays.toString(parts5));      // "[a, b, c, d]" -> negative limit, all splits happen
+
+		String data = "a,b,,";
+		System.out.println(Arrays.toString(data.split(",")));       // "[a, b]"       -> default: trailing empties removed
+		System.out.println(Arrays.toString(data.split(",", 0)));     // "[a, b]"       -> 0 behaves same as default
+		System.out.println(Arrays.toString(data.split(",", -1)));    // "[a, b, , ]"   -> trailing empties preserved
+		System.out.println(Arrays.toString(data.split(",", 2)));     // "[a, b,,]"     -> only 2 parts, rest kept as-is
+
+		System.out.println(Arrays.toString("a,,b".split(",")));      // "[a, , b]" -> middle empty string always shows, limit doesn't affect it
+
+
+		// ===================== 25. split() regex trap: escaping special characters =====================
+		String str10 = "192.168.1.1";
+		String[] parts10 = str10.split(".");       // ❌ WRONG -> "." in regex means "any character", not a literal dot
+		System.out.println(Arrays.toString(parts10));   // "[]" -> every position matches, all resulting pieces are empty and trimmed away
+
+		String[] parts11 = str10.split("\\.");      // ✅ CORRECT -> \\. escapes the dot to mean a literal "."
+		System.out.println(Arrays.toString(parts11));   // "[192, 168, 1, 1]"
 	}
 }
