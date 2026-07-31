@@ -21,10 +21,8 @@ public class PatternPractice {
 		pattern16();
 		pattern17();
 		pattern18();
-		pattern19();
 		pattern20();
 		pattern21();
-		pattern22();
 		pattern23();
 		pattern24();
 		pattern25();
@@ -371,14 +369,12 @@ public class PatternPractice {
 //			   *       *
 		n = 5;
 		for (int i = 1; i <= n; i++) {
-			int num = i;
 			for (int j = 1; j <= n; j++) {
 				if (i == j || i + j == 6) {
 					System.out.print("* ");
 				} else {
 					System.out.print("  ");
 				}
-				num++;
 			}
 			System.out.println();
 		}
@@ -394,19 +390,22 @@ public class PatternPractice {
 //			  1 2 1
 //			 1 3 3 1
 //			1 4 6 4 1
-
 		int n = 5;
-		for (int i = 1; i <= n; i++) {
-			for (int k = i; k <= n; k++) {
+
+		for (int i = 0; i < n; i++) {
+
+			for (int space = 0; space < n - i; space++) {
 				System.out.print(" ");
 			}
-			int num = 1;
-			for (int j = 1; j <= i; j++) {
-				if (j == 1 || j == i) {
-					System.out.print(" 1");
+
+			long value = 1; 
+			for (int j = 0; j <= i; j++) {
+				if (j == 0 || j == i) {
+					System.out.print(1 + " "); // edges hamesha 1 hote hain
 				} else {
-					System.out.print("  ");
+					System.out.print(value + " "); // beech ke values formula se
 				}
+				value = value * (i - j) / (j + 1); // agla value nikalne ka formula
 			}
 			System.out.println();
 		}
@@ -429,7 +428,7 @@ public class PatternPractice {
 			for (int j = 1; j <= i; j++) {
 				System.out.print(ch++ + " ");
 			}
-			ch-=2;
+			ch -= 2;
 			for (int j = 1; j < i; j++) {
 				System.out.print(ch-- + " ");
 			}
@@ -655,21 +654,6 @@ public class PatternPractice {
 		}
 	}
 
-	private static void pattern19() {
-		System.out.println("\n--Q19---------------\n");
-		int n=4;
-		for (int i = 1; i <= n; i++) {
-			for (int k = 1; k <= n-i; k++) {
-				System.out.print("  ");
-			}
-			for (int j = 1; j <=i; j++) {
-				System.out.print(" * ");
-			}
-		
-			System.out.println();
-		}
-	}
-
 	private static void pattern20() {
 
 		System.out.println("\n--Q20---------------\n");
@@ -714,16 +698,6 @@ public class PatternPractice {
 				System.out.print(i % 2 == 0 ? " 0" : " 1");
 			}
 			System.out.println();
-		}
-	}
-
-	private static void pattern22() {
-		System.out.println("\n--Q22---------------\n");
-		int n = 6;
-		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= n; j++) {
-				
-			}
 		}
 	}
 
