@@ -18,6 +18,8 @@ This repository documents my hands-on Java learning journey through a structured
 | `IfElse_Practice` | Conditional statements | Menu-driven program with 17 practice problems |
 | `ControlFlow` | Switch statements & jumping statements | Menu-driven program with 12 switch-case problems, break/continue/return |
 | `Loops_Practice` | for, while, do-while | Loop variants, nested loops, pattern printing, labeled break/continue |
+| `Arrays` | Arrays | 1D & 2D arrays, matrix operations (`ArrayHW`, `ArrayPractice`, `MatrixPractice`) |
+| `String` | Strings & Regex | Core String methods, StringBuilder, StringTokenizer, regex basics (`StringHW`, `RegexHW`, `RegexNegationDemo`, `RegexQues`, `EmailRegexDemo`) |
 | `PracticeTest` | Mixed practice | Various programs combining learned concepts |
 
 ---
@@ -67,6 +69,26 @@ Covers all three loop types and where each one actually fits:
 
 ---
 
+## 🎯 Arrays — ArrayHW, ArrayPractice, MatrixPractice
+
+Covers 1D and 2D arrays using plain loop-based logic:
+- **ArrayHW** — array declaration, initialization, traversal, basic operations (sum, max/min, search)
+- **ArrayPractice** — array manipulation problems (reverse, sort-by-hand, frequency count, duplicates)
+- **MatrixPractice** — 2D array operations: matrix traversal, row/column sum, transpose, matrix addition using nested loops
+
+---
+
+## 🎯 String — StringHW, RegexHW, RegexNegationDemo, RegexQues, EmailRegexDemo
+
+Covers String as a class and regex-based validation:
+- **StringHW** — core String methods (length, charAt, substring, indexOf, equals vs equalsIgnoreCase, concat), String immutability, String Pool behavior, StringBuilder for mutable strings, StringTokenizer and split() for tokenizing input
+- **RegexHW** — regex basics, pattern matching using `matches()`
+- **RegexNegationDemo** — negated character classes in regex (`[^...]`)
+- **RegexQues** — regex-based practice problems
+- **EmailRegexDemo** — real-world regex use case: validating email format
+
+---
+
 ## 🐛 Key Lessons Learned (The Hard Way)
 
 Real bugs I hit and fixed — documented so I never repeat them:
@@ -88,6 +110,11 @@ Real bugs I hit and fixed — documented so I never repeat them:
 - **Pattern printing off-by-one**: row/column boundaries in star patterns break easily if the inner loop condition uses `<` instead of `<=` (or vice versa) — always trace one row by hand first
 - **Labeled break scope**: a label has to sit directly above the loop it targets — putting it in the wrong place either doesn't compile or breaks the wrong loop
 - **Infinite loop from unchanged condition variable**: forgetting to update the loop variable inside a `while` (unlike `for`, where it's forced into the loop header) silently hangs the program
+- **String Pool vs `new String()`**: two string literals with the same value point to the same Pool object, but `new String("x")` forces a separate heap object — `==` breaks silently here even when `.equals()` still works
+- **StringBuilder vs String in loops**: concatenating in a loop with `+` creates a new String object every iteration — StringBuilder avoids that overhead
+- **split() vs StringTokenizer**: `split()` takes a regex and can return empty strings for consecutive delimiters, StringTokenizer doesn't — mixing them up gives different array lengths for the same input
+- **Regex escaping**: characters like `.` and `\` need to be escaped inside a regex pattern — an unescaped `.` matches any character, not a literal dot
+- **Matrix row vs column confusion**: `matrix[i][j]` — mixing up which index is row and which is column silently gives wrong sums/transpose without throwing an error
 
 ---
 
