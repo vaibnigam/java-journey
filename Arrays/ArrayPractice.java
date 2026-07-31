@@ -227,22 +227,54 @@ public class ArrayPractice {
 
 		System.out.println("Total no of elements : " + array.length);
 		System.out.print("Unique elements : ");
-		boolean unique = true;
-		
+
 		for (int i = 0; i < array.length; i++) {
+
+			// Step 1: check if this element already appeared BEFORE index i
+			boolean alreadyProcessed = false;
+			for (int k = 0; k < i; k++) {
+				if (array[i] == array[k]) {
+					alreadyProcessed = true;
+					break; // no need to keep checking once found
+				}
+			}
+
+			// Step 2: if already seen before, skip it entirely -> avoids
+			// re-printing/re-counting it
+			if (alreadyProcessed) {
+				continue; // continues the OUTER i-loop, k-loop is already done above
+			}
+
+			// Step 3: count how many times this element appears AFTER index i
 			int count = 0;
 			for (int j = i + 1; j < array.length; j++) {
-				for(int k = 0;k<i;k++) {
-					if (array[i]==array[k]) 
-					continue;
-				}
-				
 				if (array[i] == array[j]) {
 					count++;
 				}
 			}
 
-			if (count==0) {
+			// Step 4: if it never appears again anywhere else, it's unique -> print it
+			if (count == 0) {
+				System.out.print(array[i] + " ");
+			}
+		}
+		System.out.println();
+	}
+
+	private static void printDistinctElements(int[] array) {
+		System.out.print("Distinct elements : ");
+
+		for (int i = 0; i < array.length; i++) {
+
+			boolean alreadyProcessed = false;
+			for (int k = 0; k < i; k++) {
+				if (array[i] == array[k]) {
+					alreadyProcessed = true;
+					break;
+				}
+			}
+
+			if (!alreadyProcessed) {
 				System.out.print(array[i] + " ");
 			}
 		}
@@ -312,26 +344,45 @@ public class ArrayPractice {
 
 	private static void insertElement(int[] array, Scanner sc) {
 
-//		right now inserting element in end in a new array 
-
 		System.out.println("Enter element to insert");
 		int element = sc.nextInt();
+
+		int index;
+
+		do {
+			System.out.println("Tell me at what position you want to insert element");
+			index = sc.nextInt();
+		} while (index < 0 || index > array.length);
+
 		int[] newArray = new int[array.length + 1];
-		for (int i = 0; i < array.length; i++) {
+
+		for (int i = 0; i < index; i++) {
 			newArray[i] = array[i];
 		}
-		newArray[newArray.length - 1] = element;
-		printArray(newArray);
 
+		newArray[index] = element;
+
+		for (int j = index; j < array.length; j++) {
+			newArray[j + 1] = array[j];
+		}
+		System.out.println(Arrays.toString(newArray));
 	}
 
 	private static void findSecondLargest(int[] array) {
 
-		int[] sorted = Arrays.copyOf(array, array.length);
-		printArray(sorted);
-		
-		System.out.print("Second Largest : ");
-		
+		int largest = Integer.MIN_VALUE;
+		int secondLargest = Integer.MIN_VALUE;
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] > largest) {
+				secondLargest = largest;
+				largest = array[i];
+			} else if (array[i] > secondLargest && array[i] != largest) {
+				secondLargest = array[i];
+			}
+		}
+		System.out.println("Largest is : " + largest);
+		System.out.println("Second Largest is : " + secondLargest);
+
 	}
 
 	private static void mergeArrays(int[] array) {
