@@ -94,16 +94,16 @@ public class StringHandlingPractice {
 				findAllPermutations();
 				break;
 			case 18:
-				countVowelsAndConsonants();
+				countVowelsAndConsonants(s);
 				break;
 			case 19:
-				findMaxOccurringCharacter();
+				findMaxOccurringCharacter(s);
 				break;
 			case 20:
-				findFirstNonRepeatingCharacter();
+				findFirstNonRepeatingCharacter(s);
 				break;
 			case 21:
-				checkOnlyDigits();
+				checkOnlyDigits(sc);
 				break;
 			case 22:
 				returnHighestOccurredCharacter();
@@ -323,27 +323,93 @@ public class StringHandlingPractice {
 	}
 
 	// 18. Count vowels and consonants in a string (Java 8)
-	static void countVowelsAndConsonants() {
-
+	static void countVowelsAndConsonants(String s) {
+		s = s.toLowerCase();
+		int vowel = 0;
+		int cons = 0;
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) >= 'a' && s.charAt(i) <= 'z') {
+				if (s.charAt(i) == 'a' || s.charAt(i) == 'e' || s.charAt(i) == 'i' || s.charAt(i) == 'o'
+						|| s.charAt(i) == 'u') {
+					vowel++;
+				} else {
+					cons++;
+				}
+			}
+		}
+		System.out.println("Vowels : " + vowel);
+		System.out.println("Cons : " + cons);
 	}
 
 	// 19. Find the maximum occurring character in a given string
-	static void findMaxOccurringCharacter() {
+	static void findMaxOccurringCharacter(String s) {
+		char ch = s.charAt(0);
+		int maxCharCount = 0;
+		char maxOcc = ch;
 
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) == ' ') {
+				continue; // skip spaces entirely — don't count or compare them
+			}
+			boolean alreadyCounted = false;
+			for (int k = 0; k < i; k++) {
+				if (s.charAt(k) == s.charAt(i)) {
+					alreadyCounted = true;
+				}
+			}
+			if (alreadyCounted) {
+				continue;
+			}
+			int count = 0;
+			for (int j = i; j < s.length(); j++) {
+				if (s.charAt(i) == s.charAt(j)) {
+					count++;
+				}
+			}
+			if (count > maxCharCount) {
+				maxCharCount = count;
+				maxOcc = s.charAt(i);
+			}
+		}
+		System.out.println(maxOcc + " " + maxCharCount);
 	}
 
 	// 20. Find the first non-repeating character in a given string
-	static void findFirstNonRepeatingCharacter() {
+	static void findFirstNonRepeatingCharacter(String s) {
+		char ch = ' ';
+		outer: for (int i = 0; i < s.length(); i++) {
+			boolean alreadyCounted = false;
+			for (int k = 0; k < i; k++) {
+				if (s.charAt(k) == s.charAt(i)) {
+					alreadyCounted = true;
+				}
+			}
+			if (alreadyCounted) {
+				continue;
+			}
+			for (int j = i+1; j < s.length(); j++) {
+				if (s.charAt(i) == s.charAt(j)) {
+					continue outer;
+				}
+			}
+			ch = s.charAt(i);
+			break outer;
+		}
+		System.out.println(ch);
 
 	}
 
 	// 21. Check if a string contains only digits
-	static void checkOnlyDigits() {
-
+	static void checkOnlyDigits(Scanner sc) {
+		System.out.println("Enter String");
+		String s = sc.nextLine();
+		boolean onlyDigits = s.matches("[0-9]+");
+		System.out.println(onlyDigits);
 	}
 
 	// 22. Return the highest occurred character in a string
 	static void returnHighestOccurredCharacter() {
+		// same as 19
 
 	}
 }
