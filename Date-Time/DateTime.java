@@ -207,13 +207,40 @@ public class DateTime {
 	//    and parsing (String -> Date)
 	// Real use case: UI display, reports, API response formatting.
 	//
-	// Pattern letters (CASE MATTERS!):
-	//   d/dd   -> day of month     M/MM  -> month (number)
-	//   MMM    -> month short name  MMMM -> month full name
-	//   y/yyyy -> year               E/EEEE -> day of week
-	//   H/HH   -> hour (24h)        h/hh -> hour (12h)
-	//   m/mm   -> MINUTES (lowercase! not month)
-	//   s/ss   -> seconds            a   -> AM/PM
+	// ===========================================================
+		// DateTimeFormatter — Pattern Letters Reference
+		// (CASE MATTERS! Uppercase and lowercase mean different things)
+		// ===========================================================
+		//
+		// Letter | Meaning              | Example Output
+		// -------|----------------------|------------------
+		//   d    | day of month (1-2)   | 2, 15
+		//   dd   | day of month (2-dig) | 02, 15
+		//   M    | month number         | 8
+		//   MM   | month number (2-dig) | 08
+		//   MMM  | month short name     | Aug
+		//   MMMM | month full name      | August
+		//   y    | year (no padding)    | 2026
+		//   yy   | year (2-digit)       | 26
+		//   yyyy | year (4-digit)       | 2026
+		//   E    | day of week (short)  | Sun
+		//   EEEE | day of week (full)   | Sunday
+		//   H    | hour, 24h format     | 13
+		//   HH   | hour, 24h (2-digit)  | 13
+		//   h    | hour, 12h format     | 1
+		//   hh   | hour, 12h (2-digit)  | 01
+		//   m    | minute                | 5
+		//   mm   | minute (2-digit)     | 05
+		//   s    | second                | 9
+		//   ss   | second (2-digit)     | 09
+		//   a    | AM/PM marker         | PM
+		//
+		// COMMON TRAPS:
+		//   - "M" = month, "m" = minutes   -> never confuse the two
+		//   - "D" = day of YEAR (1-365)    -> NOT day of month, avoid
+		//   - "Y" = week-based year        -> NOT calendar year, avoid
+		//   - Use "d"/"dd" for day-of-month and "y"/"yyyy" for year instead
+		// ===========================================================
 	// ===========================================================
 	private static void demoFormatter() {
 		System.out.println("\n===== DateTimeFormatter =====");
