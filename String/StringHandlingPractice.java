@@ -318,8 +318,23 @@ public class StringHandlingPractice {
 	}
 
 	// 17. Find all permutations of a string
+// 17. Find all permutations of a string
 	static void findAllPermutations() {
+		String s = "XYZ";
 
+		for (int i = 0; i < s.length(); i++) {
+			for (int j = 0; j < s.length(); j++) {
+				if (j == i)
+					continue; // skip if same index as i
+
+				for (int k = 0; k < s.length(); k++) {
+					if (k == i || k == j)
+						continue; // skip if same index as i or j
+
+					System.out.println("" + s.charAt(i) + s.charAt(j) + s.charAt(k));
+				}
+			}
+		}
 	}
 
 	// 18. Count vowels and consonants in a string (Java 8)
@@ -387,7 +402,7 @@ public class StringHandlingPractice {
 			if (alreadyCounted) {
 				continue;
 			}
-			for (int j = i+1; j < s.length(); j++) {
+			for (int j = i + 1; j < s.length(); j++) {
 				if (s.charAt(i) == s.charAt(j)) {
 					continue outer;
 				}
