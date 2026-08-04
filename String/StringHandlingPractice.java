@@ -109,7 +109,7 @@ public class StringHandlingPractice {
 				returnHighestOccurredCharacter();
 				break;
 			case 0:
-				System.out.println("Exiting... Bye!");
+				System.out.println("Exiting.... Bye!");
 				break;
 			default:
 				System.out.println("Invalid choice, try again.");
