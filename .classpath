@@ -15,5 +15,8 @@
 	<classpathentry kind="src" path="Arrays"/>
 	<classpathentry kind="src" path="String"/>
 	<classpathentry kind="src" path="Date-Time"/>
+	<classpathentry kind="src" path="RegEx"/>
+	<classpathentry kind="src" path="Scanner"/>
+	<classpathentry kind="src" path="MethodsInJava"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
