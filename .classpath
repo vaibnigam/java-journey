@@ -17,6 +17,6 @@
 	<classpathentry kind="src" path="Date-Time"/>
 	<classpathentry kind="src" path="RegEx"/>
 	<classpathentry kind="src" path="Scanner"/>
-	<classpathentry kind="src" path="MethodsInJava"/>
+	<classpathentry kind="src" path="Methods"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
