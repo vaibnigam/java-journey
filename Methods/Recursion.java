@@ -10,20 +10,21 @@ public class Recursion {
 
 //			1. find the factorial of a given number using recurssion function. 
 
-		System.out.println("Enter number");
+		System.out.println("Enter number for factorial");
 		int x = sc.nextInt();
 		sc.nextLine();
 		System.out.printf("Factorial of %d is %d\n", x, factorial(x));
 
 //			2. reverse the array using recurssion function. 
-
-		int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-		System.out.println("Before : " + Arrays.toString(array));
+		int[] array = inputArray1D(sc);
+		System.out.println("Your array : " + Arrays.toString(array));
 		reverseArray(array, 0, array.length - 1);
-		System.out.println("After : " + Arrays.toString(array));
+		System.out.println("Reversed : " + Arrays.toString(array));
 
 //			3. reverse the string using recurssion function. 
-		System.out.println("Enter String");
+		sc.nextLine();
+		System.out.println();
+		System.out.println("Enter a String");
 		String string = sc.nextLine();
 		System.out.println("Original String : " + string);
 		System.out.println("Reversed String : " + reverseString(string));
@@ -31,14 +32,15 @@ public class Recursion {
 //			4. sum of all the number from 1 to n using 
 //				recurssion function. 
 
-		System.out.println("Enter number");
+		System.out.println("Enter a number to find the sum up to that number.");
 		int n = sc.nextInt();
 		sc.nextLine();
 		System.out.printf("Sum of numbers till %d : %d\n", n, sigmaN(n));
 
 //			5. product of all the number from 1 to n using 
 //				recurssion function. 
-		System.out.println("Enter number");
+		System.out.println();
+		System.out.println("Enter number to find product of all the number upto that number.");
 		int mn = sc.nextInt();
 		sc.nextLine();
 		System.out.printf("Product of numbers till %d : %d\n", mn, factorial(mn));
@@ -46,9 +48,9 @@ public class Recursion {
 //			6. print a fabonacii series using recurssion function.
 
 		System.out.println("Enter number of term of fibonacci series");
-		int fib = sc.nextInt();
+		int terms = sc.nextInt();
 		sc.nextLine();
-		
+		printFibonacci(terms);
 		sc.close();
 	}
 
@@ -77,6 +79,11 @@ public class Recursion {
 	}
 
 	static String reverseString(String s) {
+		// reverseString("abc") -> strips 1st char each call, recurses on rest, until
+		// length<=1 (base case)
+		// then while unwinding, each saved first char gets appended at the END ->
+		// "c"+'b'="cb" -> "cb"+'a'="cba"
+		// net effect: first char processed ends up last -> string gets reversed
 		if (s.length() <= 1) {
 			return s; // base case: 0 or 1 char, already "reversed"
 		}
@@ -88,9 +95,37 @@ public class Recursion {
 			return 0;
 		return n + sigmaN(n - 1);
 	}
-	static void fibonacci(int n , int first , int next) {
-		
-		
+
+	static void printFibonacci(int terms) {
+		for (int i = 0; i < terms; i++) {
+			System.out.print(fib(i) + " ");
+		}
+		System.out.println();
+	}
+
+	static int fib(int n) {
+		if (n == 0)
+			return 0; // base case 1
+		if (n == 1)
+			return 1; // base case 2
+		return fib(n - 1) + fib(n - 2); // recursive case
+	}
+
+	private static int[] inputArray1D(Scanner sc) {
+		int arraySize = 0;
+		while (arraySize <= 0) {
+			System.out.println("Enter size of array");
+			arraySize = sc.nextInt();
+
+			if (arraySize <= 0)
+				System.out.println("Invalid size! Please enter a positive number.");
+		}
+		int[] array = new int[arraySize];
+		for (int i = 0; i < array.length; i++) {
+			System.out.println("Enter " + (i + 1) + " Element");
+			array[i] = sc.nextInt();
+		}
+		return array;
 	}
 
 }
