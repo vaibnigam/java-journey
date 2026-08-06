@@ -45,7 +45,7 @@ public class Recursion {
 		sc.nextLine();
 		System.out.printf("Product of numbers till %d : %d\n", mn, factorial(mn));
 
-//			6. print a fabonacii series using recurssion function.
+//			6. print a fibonacci series using recurssion function.
 
 		System.out.println("Enter number of term of fibonacci series");
 		int terms = sc.nextInt();
