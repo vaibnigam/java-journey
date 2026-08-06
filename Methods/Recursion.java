@@ -8,20 +8,20 @@ public class Recursion {
 
 //		questions : 
 
-//			1. find the factorial of a given number using recurssion function. 
+//			1. find the factorial of a given number using recursion function. 
 
 		System.out.println("Enter number for factorial");
 		int x = sc.nextInt();
 		sc.nextLine();
 		System.out.printf("Factorial of %d is %d\n", x, factorial(x));
 
-//			2. reverse the array using recurssion function. 
+//			2. reverse the array using recursion function. 
 		int[] array = inputArray1D(sc);
 		System.out.println("Your array : " + Arrays.toString(array));
 		reverseArray(array, 0, array.length - 1);
 		System.out.println("Reversed : " + Arrays.toString(array));
 
-//			3. reverse the string using recurssion function. 
+//			3. reverse the string using recursion function. 
 		sc.nextLine();
 		System.out.println();
 		System.out.println("Enter a String");
@@ -30,7 +30,7 @@ public class Recursion {
 		System.out.println("Reversed String : " + reverseString(string));
 
 //			4. sum of all the number from 1 to n using 
-//				recurssion function. 
+//				recursion function. 
 
 		System.out.println("Enter a number to find the sum up to that number.");
 		int n = sc.nextInt();
@@ -38,14 +38,14 @@ public class Recursion {
 		System.out.printf("Sum of numbers till %d : %d\n", n, sigmaN(n));
 
 //			5. product of all the number from 1 to n using 
-//				recurssion function. 
+//				recursion function. 
 		System.out.println();
 		System.out.println("Enter number to find product of all the number upto that number.");
 		int mn = sc.nextInt();
 		sc.nextLine();
 		System.out.printf("Product of numbers till %d : %d\n", mn, factorial(mn));
 
-//			6. print a fibonacci series using recurssion function.
+//			6. print a fibonacci series using recursion function.
 
 		System.out.println("Enter number of term of fibonacci series");
 		int terms = sc.nextInt();
