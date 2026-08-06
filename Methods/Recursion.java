@@ -84,7 +84,9 @@ public class Recursion {
 		// then while unwinding, each saved first char gets appended at the END ->
 		// "c"+'b'="cb" -> "cb"+'a'="cba"
 		// net effect: first char processed ends up last -> string gets reversed
+		System.out.println(s);
 		if (s.length() <= 1) {
+
 			return s; // base case: 0 or 1 char, already "reversed"
 		}
 		return reverseString(s.substring(1)) + s.charAt(0); // recurse on rest, then append first char at the end
