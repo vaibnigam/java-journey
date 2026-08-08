@@ -25,5 +25,6 @@ public class Areas {
 		double side = sc.nextDouble();
 		System.out.println("Area of square is " + side * side);
 		sc.close();
+
 	}
 }
