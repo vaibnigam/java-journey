@@ -20,6 +20,10 @@ This repository documents my hands-on Java learning journey through a structured
 | `Loops_Practice` | for, while, do-while | Loop variants, nested loops, pattern printing, labeled break/continue |
 | `Arrays` | Arrays | 1D & 2D arrays, matrix operations (`ArrayHW`, `ArrayPractice`, `MatrixPractice`) |
 | `String` | Strings & Regex | Core String methods, StringBuilder, StringTokenizer, regex basics (`StringHW`, `RegexHW`, `RegexNegationDemo`, `RegexQues`, `EmailRegexDemo`) |
+| `DateTime` | Date-Time API | `LocalDate`, `LocalDateTime`, `Period`, `Duration`, `DateTimeFormatter` (`DateTime.java`) |
+| `Scanner_Practice` | Scanner class | Input handling across int/String/mixed reads |
+| `Methods` | Methods | Overloading, overriding, static vs instance, generics, functional interfaces, method references, exception handling in methods |
+| `Recursion_Practice` | Recursion | Recursive problem solving, base case / recursive case design |
 | `PracticeTest` | Mixed practice | Various programs combining learned concepts |
 
 ---
@@ -89,6 +93,51 @@ Covers String as a class and regex-based validation:
 
 ---
 
+## 🎯 DateTime — Date-Time API
+
+Covers `java.time` package for date/time handling:
+- `LocalDate`, `LocalTime`, `LocalDateTime` — creation, extraction of parts
+- `Period.between()` and `Duration.between()` for calculating gaps
+- `plusDays()`, `minusMonths()` and similar methods — immutable date objects
+- `DateTimeFormatter` — custom date formatting patterns
+- `Instant` — UTC-based timestamp handling, relevant for database storage patterns
+
+---
+
+## 🎯 Scanner_Practice — Scanner class
+
+Covers input handling using `java.util.Scanner`:
+- Reading `int`, `double`, `String` inputs individually
+- Mixed-type input reads (numbers followed by strings) and buffer handling
+- Reading multiple values on a single line vs multiple lines
+- Validating input before further processing
+
+---
+
+## 🎯 Methods — Overloading, Overriding, Static vs Instance, Generics, Functional Interfaces
+
+Covers methods as a complete topic, not just syntax:
+- Method declaration, parameters, return types, `void` methods
+- **Overloading** — same method name, different parameter lists (compile-time)
+- **Overriding** — subclass redefining a parent method (runtime, `@Override`)
+- **Static vs Instance methods** — when each is appropriate, calling rules
+- **Varargs** — variable-length argument methods
+- **Generics in methods** — type-parameterized methods
+- **Functional interfaces & method references** — lambda-compatible method design
+- **Exception handling in methods** — throws, try-catch inside methods, propagation
+
+---
+
+## 🎯 Recursion_Practice — Recursion
+
+Covers recursive problem solving:
+- Base case and recursive case identification
+- Classic recursion problems (factorial, Fibonacci, sum of digits, reverse)
+- Recursion vs iteration — when recursion is the cleaner fit
+- Stack behavior during recursive calls
+
+---
+
 ## 🐛 Key Lessons Learned (The Hard Way)
 
 Real bugs I hit and fixed — documented so I never repeat them:
@@ -115,6 +164,11 @@ Real bugs I hit and fixed — documented so I never repeat them:
 - **split() vs StringTokenizer**: `split()` takes a regex and can return empty strings for consecutive delimiters, StringTokenizer doesn't — mixing them up gives different array lengths for the same input
 - **Regex escaping**: characters like `.` and `\` need to be escaped inside a regex pattern — an unescaped `.` matches any character, not a literal dot
 - **Matrix row vs column confusion**: `matrix[i][j]` — mixing up which index is row and which is column silently gives wrong sums/transpose without throwing an error
+- **`java.time` immutability**: `plusDays()`, `minusMonths()` etc. return a new object — calling them without reassigning the result leaves the original date unchanged
+- **`Period.between(start, end)` argument order**: swapping start and end gives a negative period instead of throwing an error — easy to miss silently
+- **`DateTimeFormatter` case sensitivity**: `M` (month) vs `m` (minute), `d` (day) vs `D` (day of year), `y` vs `Y` — using the wrong case parses/formats completely different values without an error
+- **Top-level class access modifiers**: a top-level class can only be `public` or default (package-private) — `private`/`protected` on a top-level class doesn't compile
+- **Overload resolution ambiguity**: symmetric widening (e.g. passing an `int` where both `long` and `float` overloads exist) can be ambiguous at compile time depending on exact match availability
 
 ---
 
