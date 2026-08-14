@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class ClassPractice {
+public class Practice {
 
 	public static void main(String[] args) {
 		// Creating a new Employee object and assigning values to its fields
