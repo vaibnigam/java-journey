@@ -1,3 +1,4 @@
+package introduction.multithreading;
 public class LambdaThreadDemo {
     public static void main(String[] args) {
 
