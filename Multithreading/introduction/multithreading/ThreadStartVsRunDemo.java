@@ -13,7 +13,6 @@ public class ThreadStartVsRunDemo {
 
             @Override
             public void run() {
-                // Loop 5 baar chalega
                 for (int i = 0; i < 5; i++) {
 
                     // Thread.currentThread().getName() batata hai
