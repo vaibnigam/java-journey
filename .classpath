@@ -20,5 +20,6 @@
 	<classpathentry kind="src" path="Methods"/>
 	<classpathentry kind="src" path="OOP_Concepts"/>
 	<classpathentry kind="src" path="Multithreading"/>
+	<classpathentry kind="src" path="CollectionFW"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
