@@ -40,7 +40,7 @@ public class IterableIteratorDemo {
 		// =====================================================
 
 		/*
-		 * Iterator bhi ek INTERFACE hai.
+		 * Iterator bhi ek INTERFACE hai .
 		 *
 		 * Iterator actual elements ko one-by-one traverse karta hai.
 		 *
