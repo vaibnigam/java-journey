@@ -21,7 +21,7 @@ public class IterableIteratorDemo {
 		/*
 		 * Iterable ek INTERFACE hai.
 		 *
-		 * Main method: iterator()
+		 * Main method: iterator().
 		 *
 		 * Meaning: "Mere elements ko traverse karna hai? Main tumhe Iterator de sakta
 		 * hoon."
