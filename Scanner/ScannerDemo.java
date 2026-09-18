@@ -14,7 +14,7 @@ public class ScannerDemo {
 
 		// ===================== 2. next() vs nextLine() =====================
 		// next()      -> reads ONE token only, STOPS at the first whitespace
-		// nextLine()  -> reads the ENTIRE line, INCLUDING spaces, until Enter is pressed
+		// nextLine()  -> reads the ENTIRE line, INCLUDING spaces, until Enter is pressed.
 
 		System.out.println("Enter your first name (single word):");
 		String firstName = sc.next();
