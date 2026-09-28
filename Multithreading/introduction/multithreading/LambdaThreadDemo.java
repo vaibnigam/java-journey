@@ -39,6 +39,7 @@ public class LambdaThreadDemo {
         // isliye jab t2 actually chalega, naya naam
         // "Name of thread 2" hi use hoga
         t2.setName("Name of thread 2");
+        t2.getAllStackTraces();
         t2.start();
 
         // t3 ko koi custom naam nahi diya gaya — isliye ye JVM ke
