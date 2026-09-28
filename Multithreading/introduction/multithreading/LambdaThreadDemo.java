@@ -12,7 +12,8 @@ public class LambdaThreadDemo {
                 // YE CODE ABHI KIS THREAD PAR CHAL RAHA HAI.
                 // Chahe Runnable same ho, har Thread ki apni ALAG
                 // identity (naam) hoti hai — naam Thread se
-                // associate hota hai, Runnable se nahi.
+                // associate hota hai, Runnable se nahi..
+            	// .
                 System.out.println("Hello from " + Thread.currentThread().getName());
             }
         };
