@@ -8,7 +8,7 @@ public class LambdaThreadDemo {
         // multiple Threads ek hi Runnable share kar sakte hain.
         Runnable r1 = () -> {
             for (int i = 0; i < 10; i++) {
-                // Thread.currentThread().getName() batata hai ki
+                // Thread.currentThread().getName() batata hai ki.
                 // YE CODE ABHI KIS THREAD PAR CHAL RAHA HAI.
                 // Chahe Runnable same ho, har Thread ki apni ALAG
                 // identity (naam) hoti hai — naam Thread se
