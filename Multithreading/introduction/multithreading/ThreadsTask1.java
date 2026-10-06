@@ -24,7 +24,7 @@ public class ThreadsTask1 {
 			}
 		};
 
-		Thread t1 = new ThrTead(r1, "One");
+		Thread t1 = new Thread(r1, "One");
 		Thread t2 = new Thread(r2, "Two");
 		
 		t1.start();
