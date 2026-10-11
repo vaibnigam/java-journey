@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class StreamPractice {
+public class StreamPractice2 {
 
 	public static void main(String[] args) {
 		List<Integer> nums = Arrays.asList();
